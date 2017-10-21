@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>贫困生信息一览</title>
+    <script src="/static/js/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <br />
+    <b style="font-size:20px;margin-left:10px;">贫困生信息一览</b>
+    {% if isAdmin %}
+    <a href="/applicant/list" class="btn btn-danger" style="float:right;margin-right:10px;">返回</a>
+    {% endif %}
+    <br />
+    <br />
+    <table class="table table-striped table-bordered table-hover table-condensed">
+        <thead>
+            <tr class="info">
+                <th>编号</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>生日</th>
+                <th>年级</th>
+                <th>读书兴趣</th>
+                <th>已读过的喜欢书籍</th>
+                <th>想读的书</th>
+                <th>提供信息者</th>
+                <th>提供信息者联系方式</th>
+                <th>班主任</th>
+                <th>学校</th>
+                <th>备注</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in studentList %}
+            <tr>
+                <td>{{ student.number }}</td>
+                <td>{{ student.lastName }}
+                    {% if isAdmin %}
+                    {{ student.firstName }}
+                    {% else %}
+                    xx
+                    {% endif %}
+                </td>
+                <td>{{ student.gender }}</td>
+                <td>{{ student.birthday }}</td>
+                <td>{{ student.grade }}</td>
+                <td>{{ student.interest }}</td>
+                <td>{{ student.favor }}</td>
+                <td>{{ student.wish }}</td>
+                <td>{{ student.provider }}</td>
+                <td>{{ student.providerTel }}</td>
+                <td>{{ student.headTeacher }}</td>
+                <td>{{ student.school }}</td>
+                <td>{{ student.remarks }}</td>
+                <td>
+                    {% if isAdmin %}
+                    <a href="/student/detail?studentId={{ student.id }}">编辑</a>
+                    {% else %}
+                        {% if student.status == 0 %}
+                        <a href="/applicant?studentId={{ student.id }}">申请选择该小伙伴</a>
+                        {% endif %}
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

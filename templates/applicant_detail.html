@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>申请者详细</title>
+    <script src="/static/js/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+
+<body>
+        <br />
+        <b style="font-size:20px;margin-left:10px;">申请者详细</b>
+        <a href="javascript:history.back(-1)" class="btn btn-danger" style="float:right;margin-right:10px;">返回</a>
+        <br />
+        <br />
+        <table class="table table-striped table-bordered table-hover table-condensed">
+        <thead>
+            <tr class="info">
+                <th style="width:30%"></th>
+                <th>信息</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>姓名：</td>
+                <td>{{ applicant.name }}</td>
+            </tr>
+            <tr>
+                <td>年龄：</td>
+                <td>{{ applicant.age }}</td>
+            </tr>
+            <tr>
+                <td>性别：</td>
+                <td>{{ applicant.gender }}</td>
+            </tr>
+            <tr>
+                <td>手机号：</td>
+                <td>{{ applicant.tel }}</td>
+            </tr>
+            <tr>
+                <td>微信号：</td>
+                <td>{{ applicant.wechat }}</td>
+            </tr>
+            <tr>
+                <td>邮箱：</td>
+                <td>{{ applicant.mail }}</td>
+            </tr>
+            <tr>
+                <td>学历：</td>
+                <td>{{ applicant.qulification }}</td>
+            </tr>
+            <tr>
+                <td>所在职业及单位：</td>
+                <td>{{ applicant.work }}</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">您是否有过志愿者经历？（若无，请说明您对志愿者活动的认识）</td>
+            </tr>
+            <tr>
+                <td colspan="2">{{ applicant.experience }}</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">为什么您愿意参加这个活动？您预计会达成怎样的目标？</td>
+            </tr>
+            <tr>
+                <td colspan="2">{{ applicant.goal }}</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">您选择此小伙伴的原因是？（可从读书爱好、生活经历等方面分析）</td>
+            </tr>
+            <tr>
+                <td colspan="2">{{ applicant.reason }}</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">您预想以什么样的心态（角色或者方式）和您共读的小伙伴相处呢？</td>
+            </tr>
+            <tr>
+                <td colspan="2">{{ applicant.attitude }}</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">您的读书爱好兴趣和读书频率是怎样的？请列举三本您最喜欢的书。</td>
+            </tr>
+            <tr>
+                <td colspan="2">{{ applicant.rate }}</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">您认为什么类的书籍适合与您共读的小伙伴？请列举三本以上书名。</td>
+            </tr>
+            <tr>
+                <td colspan="2">{{ applicant.suitable }}</td>
+            </tr>
+            
+            <tr>
+                <td colspan="2">在共读活动中，除了分享交流读书外，您更倾向于与小伙伴交流什么样的话题？</td>
+            </tr>
+            <tr>
+                <td colspan="2">{{ applicant.otherTopic }}</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">假如您和小伙伴出现沟通不畅、误解或其他交流问题，您会怎么做？</td>
+            </tr>
+            <tr>
+                <td colspan="2">{{ applicant.communicationType }}</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">您对我们的共读计划有什么建议？</td>
+            </tr>
+            <tr>
+                <td colspan="2">{{ applicant.advice }}</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
